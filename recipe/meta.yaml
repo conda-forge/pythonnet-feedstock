@@ -10,16 +10,14 @@ source:
   sha256: a3a38e67fdfcda94df51c805343150016097f284771156f76839a9c3a24c90a9
 
 build:
-  # Skipping build on linux, because a shorter prefix-length is required which is only possible by
-  # modifying the build string. Skipping build on py2k because there are some issues on AppVeyor
-  skip: True  # [linux or py2k]
+  # Skipping build on py2k because there are some issues on AppVeyor
+  skip: True  # [py2k]
   number: 0
 
 requirements:
   build:
-    - {{ compiler('c') }}  # [not win]
-    - clangdev  # [linux]
-    - pkg-config  # [not win]
+    - {{ compiler('c') }}   # [not win]
+    - pkg-config            # [not win]
   host:
     - glib  # [not win]
     - mono  # [not win]
@@ -27,9 +25,9 @@ requirements:
     - pycparser
     - python
   run:
-    - gettext  # [not win]
+    - gettext   # [not win]
     - libiconv  # [not win]
-    - mono  # [not win]
+    - mono      # [not win]
     - python
 
 test:
@@ -51,3 +49,4 @@ about:
 extra:
   recipe-maintainers:
     - m-rossi
+    - bgruening
