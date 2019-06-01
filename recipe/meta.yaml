@@ -17,6 +17,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}   # [not win]
+    - clangdev              # [linux]
     - pkg-config            # [not win]
   host:
     - glib  # [not win]
