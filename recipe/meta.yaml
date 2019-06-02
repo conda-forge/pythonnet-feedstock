@@ -33,10 +33,12 @@ requirements:
     - python
 
 test:
+  imports:
+    - clr  # [not linux]
   commands:
     - PY_LIBDIR=$($PYTHON -c 'import sysconfig; print(sysconfig.get_config_var("LIBDIR"))')  # [linux]
     - export LD_LIBRARY_PATH=$PY_LIBDIR:$PREFIX/x86_64-conda_cos6-linux-gnu/sysroot/usr/lib:$LD_LIBRARY_PATH  # [linux]
-    - $PYTHON -c 'import clr'
+    - $PYTHON -c 'import clr'  # [linux]
 
 about:
   home: http://pythonnet.github.io
