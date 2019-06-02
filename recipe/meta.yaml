@@ -26,15 +26,17 @@ requirements:
     - pycparser
     - python
   run:
-    - {{ compiler('c') }}
-    - gettext   # [not win]
-    - libiconv  # [not win]
-    - mono      # [not win]
+    - {{ compiler('c') }}  # [linux]
+    - gettext              # [not win]
+    - libiconv             # [not win]
+    - mono                 # [not win]
     - python
 
 test:
-  imports:
-    - clr
+  commands:
+    - PY_LIBDIR=$($PYTHON -c 'import sysconfig; print(sysconfig.get_config_var("LIBDIR"))')
+    - export LD_LIBRARY_PATH=$PY_LIBDIR:$PREFIX/x86_64-conda_cos6-linux-gnu/sysroot/usr/lib:$LD_LIBRARY_PATH
+    - $PYTHON -c 'import clr'
 
 about:
   home: http://pythonnet.github.io
