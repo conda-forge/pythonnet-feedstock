@@ -26,6 +26,7 @@ requirements:
     - pycparser
     - python
   run:
+    - {{ compiler('c') }}
     - gettext   # [not win]
     - libiconv  # [not win]
     - mono      # [not win]
