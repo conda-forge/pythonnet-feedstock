@@ -10,8 +10,6 @@ source:
   sha256: a3a38e67fdfcda94df51c805343150016097f284771156f76839a9c3a24c90a9
 
 build:
-  # Skipping build on py2k because there are some issues on AppVeyor
-  skip: True
   number: 1
 
 requirements:
