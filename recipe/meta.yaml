@@ -11,8 +11,8 @@ source:
 
 build:
   # Skipping build on py2k because there are some issues on AppVeyor
-  skip: True  # [py2k]
-  number: 0
+  skip: True
+  number: 1
 
 requirements:
   build:
