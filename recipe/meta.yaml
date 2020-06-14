@@ -1,5 +1,5 @@
 {% set name = "pythonnet" %}
-{% set version = "2.4.0" %}
+{% set version = "2.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a3a38e67fdfcda94df51c805343150016097f284771156f76839a9c3a24c90a9
+  sha256: 73279c283804b9c72906fc512522d87d4c2ae1654ff3572cc8a3fc980de2891a
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -41,7 +41,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: '.Net and Mono integration for Python'
+  summary: .Net and Mono integration for Python
   description: |
     Python for .NET is a package that gives Python programmers nearly seamless integration with the
      .NET Common Language Runtime (CLR) and provides a powerful application scripting tool for .NET
