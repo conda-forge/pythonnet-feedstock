@@ -11,30 +11,19 @@ source:
 
 build:
   number: 0
+  skip: True  # [not win]
 
 requirements:
-  build:
-    - {{ compiler('c') }}   # [not win]
-    - clangdev              # [linux]
-    - pkg-config            # [not win]
   host:
-    - glib  # [not win]
-    - mono  # [not win]
     - pip
     - pycparser
     - python
   run:
-    - gettext              # [not win]
-    - libiconv             # [not win]
-    - mono                 # [not win]
     - python
 
 test:
   imports:
-    - clr  # [not linux]
-  commands:
-    - export LD_LIBRARY_PATH=${BUILD_PREFIX}/x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/  # [linux]
-    - $PYTHON -c 'import clr'  # [linux]
+    - clr
 
 about:
   home: http://pythonnet.github.io
