@@ -1,5 +1,5 @@
 {% set name = "pythonnet" %}
-{% set version = "2.5.1" %}
+{% set version = "2.5.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b4e876e0ddb52c7ce187c1abf529ef1e419743af283fde9d5769c798cf4b078f
+  sha256: b7287480a1f6ae4b6fc80d775446d8af00e051ca1646b6cc3d32c5d3a461ede3
 
 build:
-  number: 1
-  skip: True  # [not win]
-  skip: True  # [py>38]
+  number: 0
+  skip: true  # [not win]
+  skip: true  # [py>38]
 
 requirements:
   host:
