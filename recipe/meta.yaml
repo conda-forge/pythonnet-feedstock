@@ -11,19 +11,27 @@ source:
 
 build:
   number: 1
-  skip: true  # [not win]
 
 requirements:
+  build:
+    - {{ compiler('c') }}  # [not win]
+    - {{ compiler('cxx') }}  # [not win]
   host:
+    - mono  # [not win]
     - pip
     - pycparser
     - python
+    - wheel
   run:
+    - mono  # [not win]
     - python
 
 test:
   imports:
-    - clr
+    - clr  # [not linux]
+  commands:
+    - export LD_LIBRARY_PATH=${BUILD_PREFIX}/x86_64-conda-linux-gnu/sysroot/usr/lib/  # [linux]
+    - $PYTHON -c 'import clr'  # [linux]
 
 about:
   home: http://pythonnet.github.io
