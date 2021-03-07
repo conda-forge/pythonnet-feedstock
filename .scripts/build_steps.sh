@@ -52,6 +52,7 @@ if [[ "${BUILD_WITH_CONDA_DEBUG:-0}" == 1 ]]; then
 else
     startgroup "Running conda $BUILD_CMD"
     conda $BUILD_CMD "${RECIPE_ROOT}" -m "${CI_SUPPORT}/${CONFIG}.yaml" \
+        --prefix-length 80 \
         --suppress-variables ${EXTRA_CB_OPTIONS:-} \
         --clobber-file "${CI_SUPPORT}/clobber_${CONFIG}.yaml"
     endgroup "Running conda build"
