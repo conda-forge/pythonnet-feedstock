@@ -16,9 +16,9 @@ build:
 requirements:
   host:
     - pip
-    - pycparser
     - python
   run:
+    - pycparser
     - python
 
 test:
