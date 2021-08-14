@@ -21,11 +21,11 @@ requirements:
   host:
     - mono  # [not win]
     - pip
-    - pycparser
     - python
     - wheel
   run:
     - mono  # [not win]
+    - pycparser
     - python
 
 test:
