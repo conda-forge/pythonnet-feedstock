@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: b7287480a1f6ae4b6fc80d775446d8af00e051ca1646b6cc3d32c5d3a461ede3
+  patches:
+    - libdl.patch
 
 build:
   number: 2
@@ -30,10 +32,7 @@ requirements:
 
 test:
   imports:
-    - clr  # [not linux]
-  commands:
-    - export LD_LIBRARY_PATH=${BUILD_PREFIX}/x86_64-conda-linux-gnu/sysroot/usr/lib/  # [linux]
-    - $PYTHON -c 'import clr'  # [linux]
+    - clr
 
 about:
   home: http://pythonnet.github.io
