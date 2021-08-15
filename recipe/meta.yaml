@@ -23,6 +23,7 @@ requirements:
   host:
     - mono  # [not win]
     - pip
+    - pycparser
     - python
     - wheel
   run:
