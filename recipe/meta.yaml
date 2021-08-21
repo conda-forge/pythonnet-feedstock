@@ -8,16 +8,26 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: b7287480a1f6ae4b6fc80d775446d8af00e051ca1646b6cc3d32c5d3a461ede3
+  patches:
+    - libdl.patch
 
 build:
-  number: 2
-  skip: true  # [not win]
+  number: 3
 
 requirements:
+  build:
+    - {{ compiler('c') }}  # [not win]
+    - {{ compiler('cxx') }}  # [not win]
+    - clangdev  # [linux]
+    - pkg-config  # [not win]
   host:
+    - mono  # [not win]
     - pip
+    - pycparser
     - python
+    - wheel
   run:
+    - mono  # [not win]
     - pycparser
     - python
 
