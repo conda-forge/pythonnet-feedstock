@@ -28,6 +28,10 @@ requirements:
 test:
   imports:
     - clr
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: http://pythonnet.github.io
