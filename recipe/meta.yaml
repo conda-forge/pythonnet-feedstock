@@ -1,5 +1,5 @@
 {% set name = "pythonnet" %}
-{% set version = "3.0.0a2" %}
+{% set version = "3.0.0rc1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 664e9cc1e142e342bc9fe6766ceace1a78813cfb18a651ec0af11135a586294d
+  sha256: 6c05b1fd7e93d0bb47b671929bf715402ab6c59a10e16825846bd3ef0817aebc
 
 build:
   number: 0
@@ -18,11 +18,11 @@ requirements:
     - dotnet-sdk
   host:
     - pip
-    - pycparser
     - python
+    - setuptools >=61
     - wheel
   run:
-    - clr_loader
+    - clr_loader >=0.1.7
     - python
 
 test:
