@@ -3,7 +3,7 @@ MACOSX_DEPLOYMENT_TARGET:
 channel_sources:
 - conda-forge
 channel_targets:
-- conda-forge pythonnet_dev
+- conda-forge pythonnet_rc
 macos_machine:
 - x86_64-apple-darwin13.4.0
 pin_run_as_build:

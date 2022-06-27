@@ -1,7 +1,7 @@
 channel_sources:
 - conda-forge
 channel_targets:
-- conda-forge pythonnet_dev
+- conda-forge pythonnet_rc
 pin_run_as_build:
   python:
     min_pin: x.x
