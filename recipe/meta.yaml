@@ -18,13 +18,13 @@ requirements:
     - dotnet-sdk
   host:
     - pip
-    - python >=3.7
+    - python
     - setuptools >=61
     - wheel
   run:
     - clr_loader >=0.1.7
     - mono  # [not win]
-    - python >=3.7
+    - python
 
 test:
   imports:
