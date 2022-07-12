@@ -31,11 +31,11 @@ test:
     - clr
   requires:
     - dotnet-runtime
+    - importlib_resources
     - pip
     - mono
   commands:
     - pip check
-    - python -c "import clr; import System.IO; from System.IO import *; assert 'FileStream' in globals()"
 
 about:
   home: http://pythonnet.github.io
