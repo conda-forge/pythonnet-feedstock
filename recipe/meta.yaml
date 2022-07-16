@@ -1,5 +1,5 @@
 {% set name = "pythonnet" %}
-{% set version = "3.0.0rc3" %}
+{% set version = "3.0.0rc4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8041ed0457c960ad408bd1075d10df7faec4145036487a2aa791934586fefc2d
+  sha256: 3ce22e9e021f0bbf428641d958b37009abc5387b93a6f29e986ecddf62e12189
 
 build:
   number: 0
