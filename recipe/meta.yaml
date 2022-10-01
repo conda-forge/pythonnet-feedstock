@@ -1,5 +1,5 @@
 {% set name = "pythonnet" %}
-{% set version = "2.5.2" %}
+{% set version = "3.0.0.post1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,33 +7,35 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b7287480a1f6ae4b6fc80d775446d8af00e051ca1646b6cc3d32c5d3a461ede3
-  patches:
-    - libdl.patch
+  sha256: a828b2f02d1ea82f8b1e456e73e7c729a2666d0cb30a722d4f0b5a2b0837645c
 
 build:
-  number: 3
+  number: 0
+  noarch: python
+  script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   build:
-    - {{ compiler('c') }}  # [not win]
-    - {{ compiler('cxx') }}  # [not win]
-    - clangdev  # [linux]
-    - pkg-config  # [not win]
+    - dotnet-sdk
   host:
-    - mono  # [not win]
     - pip
-    - pycparser
-    - python
+    - python >=3.7,<3.11
+    - setuptools >=61
     - wheel
   run:
-    - mono  # [not win]
-    - pycparser
-    - python
+    - clr_loader >=0.2.2,<0.3.0
+    - python >=3.7,<3.11
 
 test:
   imports:
     - clr
+  requires:
+    - dotnet-runtime
+    - importlib_resources
+    - pip
+    - mono
+  commands:
+    - pip check
 
 about:
   home: http://pythonnet.github.io
