@@ -1,11 +1,11 @@
-About pythonnet
-===============
+About pythonnet-feedstock
+=========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pythonnet-feedstock/blob/main/LICENSE.txt)
 
 Home: http://pythonnet.github.io
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pythonnet-feedstock/blob/main/LICENSE.txt)
 
 Summary: .Net and Mono integration for Python
 
