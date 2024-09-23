@@ -33,9 +33,14 @@ test:
     - dotnet-runtime
     - importlib_resources
     - pip
-    - mono
+    - mono  # [not win]
+  files:
+    - test-runtime.py
   commands:
     - pip check
+    - python test-runtime.py mono # [not win]
+    - python test-runtime.py netfx  # [win]
+    - python test-runtime.py coreclr
 
 about:
   home: http://pythonnet.github.io
