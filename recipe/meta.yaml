@@ -27,7 +27,7 @@ requirements:
     - python >=3.7,<3.13
   run_constrained:
     - dotnet-runtime >=3.1
-    - mono >=4.7.2  # [not win]
+    - mono >=6.12  # [not win]
 
 test:
   imports:
