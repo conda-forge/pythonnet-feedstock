@@ -16,7 +16,7 @@ build:
 
 requirements:
   build:
-    - dotnet-sdk
+    - dotnet-sdk >=6
   host:
     - pip
     - python >=3.7,<3.13
@@ -25,6 +25,9 @@ requirements:
   run:
     - clr_loader >=0.2.6,<0.3.0
     - python >=3.7,<3.13
+  run_constrained:
+    - dotnet-runtime >=3.1
+    - mono >=4.7.2  # [not win]
 
 test:
   imports:
