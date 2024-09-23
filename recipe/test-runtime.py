@@ -22,3 +22,6 @@ from System.IO import *
 
 # Check if import dotnet-modules work
 assert 'FileStream' in globals()
+
+# Report success
+print(f'Loaded {runtime} runtime successfully.')
