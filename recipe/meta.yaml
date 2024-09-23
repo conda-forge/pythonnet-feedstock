@@ -1,5 +1,5 @@
 {% set name = "pythonnet" %}
-{% set version = "3.0.3" %}
+{% set version = "3.0.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8d4b2e97158a023875f8647458a58f38817f4fe39af60abdd6b0d8adf1d77e75
+  sha256: c92fbcfddd16575f7e75a643302271658b606d8557df7f0132ac240e03cc3a8f
 
 build:
   number: 0
@@ -16,7 +16,7 @@ build:
 
 requirements:
   build:
-    - dotnet-sdk
+    - dotnet-sdk >=6
   host:
     - pip
     - python >=3.7,<3.13
@@ -25,6 +25,9 @@ requirements:
   run:
     - clr_loader >=0.2.6,<0.3.0
     - python >=3.7,<3.13
+  run_constrained:
+    - dotnet-runtime >=3.1
+    - mono >=6.12  # [not win]
 
 test:
   imports:
@@ -33,9 +36,14 @@ test:
     - dotnet-runtime
     - importlib_resources
     - pip
-    - mono
+    - mono  # [not win]
+  files:
+    - test-runtime.py
   commands:
     - pip check
+    - python test-runtime.py mono  # [not win]
+    - python test-runtime.py netfx  # [win]
+    - python test-runtime.py coreclr
 
 about:
   home: http://pythonnet.github.io
