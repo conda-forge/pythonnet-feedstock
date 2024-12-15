@@ -19,12 +19,12 @@ requirements:
     - dotnet-sdk >=6
   host:
     - pip
-    - python >=3.7,<3.14
+    - python {{ python_min }},<3.14
     - setuptools >=61
     - wheel
   run:
     - clr_loader >=0.2.7,<0.3.0
-    - python >=3.7,<3.14
+    - python >={{ python_min }},<3.14
   run_constrained:
     - dotnet-runtime >=3.1
     - mono >=6.12  # [not win]
@@ -36,6 +36,7 @@ test:
     - dotnet-runtime
     - importlib_resources
     - pip
+    - python {{ python_min }}
     - mono  # [not win]
   files:
     - test-runtime.py
