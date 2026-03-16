@@ -17,6 +17,7 @@ build:
 requirements:
   build:
     - dotnet-sdk 8.0.*
+    - openssl
   host:
     - pip
     - python {{ python_min }}
