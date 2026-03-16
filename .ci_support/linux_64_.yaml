@@ -4,5 +4,7 @@ channel_targets:
 - conda-forge pythonnet_rc
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
+openssl:
+- '3.5'
 python_min:
 - '3.10'
