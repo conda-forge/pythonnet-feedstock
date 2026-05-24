@@ -16,15 +16,17 @@ build:
 
 requirements:
   build:
-    - dotnet-sdk >=6
+    - dotnet-sdk 10.0.*
+    - openssl
   host:
+    - packaging >=24
     - pip
+    - pyproject-parser >=0.14
     - python {{ python_min }}
-    - setuptools >=61
-    - wheel
+    - setuptools >=80
   run:
-    - clr_loader >=0.2.7,<0.3.0
-    - python >={{ python_min }},<3.14
+    - clr_loader >=0.3.1,<0.4.0
+    - python >={{ python_min }},<3.15
   run_constrained:
     - dotnet-runtime >=3.1
     - mono >=6.12  # [not win]
