@@ -1,5 +1,5 @@
 context:
-  version: "3.2.0rc1"
+  version: "3.2.0rc2"
 
 package:
   name: pythonnet
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/p/pythonnet/pythonnet-${{ version }}.tar.gz
-  sha256: 7dbdd92dd99ac98934e651990511d4bdd34e1b764217f39255b67c9df85f13cb
+  sha256: 300ca3a2216536256c974681dd98391af6666df69a3038938ae8c373fdd96b54
 
 build:
   noarch: python
