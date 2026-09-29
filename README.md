@@ -3,7 +3,7 @@ About pythonnet-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pythonnet-feedstock/blob/main/LICENSE.txt)
 
-Home: http://pythonnet.github.io
+Home: http://pythonnet.github.io/
 
 Package license: MIT
 
@@ -11,10 +11,7 @@ Summary: .Net and Mono integration for Python
 
 Development: https://github.com/pythonnet/pythonnet
 
-Python for .NET is a package that gives Python programmers nearly seamless integration with the
- .NET Common Language Runtime (CLR) and provides a powerful application scripting tool for .NET
-  developers.
-
+Documentation: https://pythonnet.github.io/pythonnet/
 
 Current build status
 ====================
