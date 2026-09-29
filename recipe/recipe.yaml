@@ -1,0 +1,74 @@
+context:
+  version: 3.2.0
+
+package:
+  name: pythonnet
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/p/pythonnet/pythonnet-${{ version }}.tar.gz
+  sha256: 880bed9452646624f2cca1627d463424d15abefa16933c46ba00dc10da78d184
+
+build:
+  noarch: python
+  script: python -m pip install . -vv
+  number: 0
+
+requirements:
+  build:
+    - dotnet-sdk 10.0.*
+    - openssl
+  host:
+    - packaging >=24
+    - pip
+    - pyproject-parser >=0.14
+    - python ${{ python_min }}.*
+    - setuptools >=80
+  run:
+    - clr_loader >=0.3.1,<0.4.0
+    - python >=${{ python_min }},<3.16
+  run_constraints:
+    - dotnet-runtime >=3.1
+    - mono >=6.12
+
+tests:
+  - python:
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+      pip_check: true
+  - script: python test-runtime.py coreclr
+    files:
+      recipe:
+        - test-runtime.py
+    requirements:
+      run:
+        - dotnet-runtime
+  - if: win
+    then:
+      script: python test-runtime.py netfx
+      files:
+        recipe:
+          - test-runtime.py
+  - if: not win
+    then:
+      script: python test-runtime.py mono
+      files:
+        recipe:
+          - test-runtime.py
+      requirements:
+        run:
+          - mono
+
+about:
+  homepage: http://pythonnet.github.io
+  summary: .Net and Mono integration for Python
+  license: MIT
+  license_file: LICENSE
+  documentation: https://pythonnet.github.io/pythonnet/
+  repository: https://github.com/pythonnet/pythonnet
+
+extra:
+  recipe-maintainers:
+    - m-rossi
+    - bgruening
